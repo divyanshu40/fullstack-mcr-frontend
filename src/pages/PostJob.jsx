@@ -137,16 +137,18 @@ const PostJobPage = () => {
         <div>
             <Header/>
             <div className="container">
-                {message && <div className="row d-flex justify-content-center">
-                    <div className="col-md-4 py-4">
-                    <div className="card">
-                      <div className="card-body">
-                        {message === "Job posted successfully" && <p className="fs-5 fw-medium" style={{ color: "green"}}>{message}</p>}
-                        {message === "Error in saving jobs" && <p className="fs-5 fw-medium" style={{ color: "red"}}>{message}</p>}
-                      </div>
-                    </div>
-                    </div>
-                    </div>}
+                {message && <div className="row py-4 justify-content-center">
+  <div className="col-md-4">
+    <div className="card">
+      <div className="card-body text-center">
+        <p className="fs-5 fw-medium" style={{ color: message === "Job posted successfully" ? "green" : "red" }}>
+          {message}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+}
                 <h5 className="display-5 fw-normal mt-4">Post a Job</h5>
                 <Form setMessage={setMessage}/>
             </div>
