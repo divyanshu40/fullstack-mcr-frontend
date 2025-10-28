@@ -106,9 +106,11 @@ const JobsPostingPage = () => {
     })
     .then((responseData) => {
       setJobs(responseData);
+      setError(null);
     })
     .catch((error) => {
       setError(error.message);
+      setJobs(null);
     })
   }
 
