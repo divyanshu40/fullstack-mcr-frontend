@@ -55,6 +55,7 @@ const Form = ({setMessage}) => {
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, title: event.target.value
                 }))}
+                placeholder="Enter the job title"
                 />
             </div>
             <div className="col mt-4">
@@ -66,6 +67,7 @@ const Form = ({setMessage}) => {
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, companyDetails: {...prevData.companyDetails, name: event.target.value}
                 }))}
+                placeholder="Enter the company name"
                 />
             </div>
             <div className="col mt-4">
@@ -77,6 +79,7 @@ const Form = ({setMessage}) => {
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, companyDetails: {...prevData.companyDetails, location: event.target.value}
                 }))}
+                placeholder="Enter the location"
                 />
             </div>
             <div className="col mt-4">
@@ -88,18 +91,24 @@ const Form = ({setMessage}) => {
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, companyDetails: {...prevData.companyDetails, salary: event.target.value}
                 }))}
+                placeholder="Enter the salary provided for the role"
                 />
             </div>
             <div className="col mt-4">
                 <label className="form-label fs-5 fw-medium">Job Type: </label>
-                <input
-                type="text"
-                className="form-control border-black"
+                <select 
+                className="form-select"
                 required
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, companyDetails: {...prevData.companyDetails, jobType: event.target.value}
                 }))}
-                />
+                >
+                    <option value="">--Select Job Type--</option>
+                    <option value=" Full-time (On-site)"> Full-time (On-site)</option>
+                    <option value=" Part-time (On-site)"> Part-time (On-site)</option>
+                    <option value="Full-time (Remote)">Full-time (Remote)</option>
+                    <option value="Part-time (Remote)">Part-time (Remote)</option>
+                </select>
             </div>
             <div className="col mt-4">
                 <label className="form-label fs-5 fw-medium">Job Description:</label>
@@ -110,6 +119,7 @@ const Form = ({setMessage}) => {
                 onChange={(event) => setJobData((prevData) => ({
                     ...prevData, description: event.target.value
                 }))}
+                placeholder="Enter the job description"
                 ></textarea>
             </div>
             <div className="col mt-4">
@@ -122,6 +132,7 @@ const Form = ({setMessage}) => {
                     let array = event.target.value.split(", ");
                     return {...prevData, Qualifications: [...prevData.Qualifications, ...array]}
                 })}
+                placeholder="Enter the qualification required for the job"
                 ></textarea>
             </div>
             <div className="col py-4">
